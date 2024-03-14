@@ -1,4 +1,3 @@
-
 using System;
 
 [Flags]
@@ -6,6 +5,7 @@ public enum PlayerMovementState
 {
     Idle = 0,
     Move = 1,
+    Die = 2,
 }
 
 [Flags]

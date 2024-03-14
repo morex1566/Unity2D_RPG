@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class FireBehaviour : PlayerStateBehaviour
+public class PlayerFireBehaviour : PlayerStateBehaviour
 {
     public Action OnStateEnterAction
     {

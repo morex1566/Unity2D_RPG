@@ -6,6 +6,5 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     [Header("무기 기본 스텟")]
-    public float speed;
-    public float dmg;
+    [SerializeField] public float damage;
 }

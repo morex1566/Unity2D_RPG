@@ -76,8 +76,8 @@ GameObject:
   - component: {fileID: 3176331513687975819}
   - component: {fileID: 8573639326084882664}
   - component: {fileID: 4018000720630762321}
-  - component: {fileID: 5050129770190318761}
-  - component: {fileID: 4314866635011662489}
+  - component: {fileID: 6959448955900853822}
+  - component: {fileID: 1385545078858425735}
   - component: {fileID: 6294251801304996361}
   m_Layer: 0
   m_Name: Player
@@ -191,6 +191,8 @@ MonoBehaviour:
   body: {fileID: 6618459748424669112}
   rigid: {fileID: 3995096250988576853}
   data: {fileID: 11400000, guid: d158df0d1cd6d1540810b4412893b75a, type: 2}
+  anim: {fileID: 6959448955900853822}
+  movement: {fileID: 1385545078858425735}
 --- !u!114 &4018000720630762321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71aeb61193beeca4cac6f4e08f9ec308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5050129770190318761
+--- !u!114 &6959448955900853822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,12 +214,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8080374654848452146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22d1c036646127d449b8112b5a822f12, type: 3}
+  m_Script: {fileID: 11500000, guid: af7111a2a8cb41e43b0944b9cd48c615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 6453112905152274640, guid: 597ca9b187d6ac7419d48028830a550f, type: 3}
-  weaponSocket: {fileID: 65200941033790163}
---- !u!114 &4314866635011662489
+--- !u!114 &1385545078858425735
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8080374654848452146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dddb90ea2ba4a3e4bba1754468379a28, type: 3}
+  m_Script: {fileID: 11500000, guid: cbe9266e0bf69324fb001ad151ea4421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6294251801304996361
