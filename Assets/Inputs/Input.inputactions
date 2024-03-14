@@ -24,12 +24,12 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Fire",
+                    "name": "Cast",
                     "type": "Button",
                     "id": "7918637e-2396-4266-bd55-73a4fd1d9e93",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(pressPoint=1.401298E-45,behavior=2)",
                     "initialStateCheck": false
                 }
             ],
@@ -206,7 +206,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Fire",
+                    "action": "Cast",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -217,7 +217,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Fire",
+                    "action": "Cast",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -228,7 +228,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Touch",
-                    "action": "Fire",
+                    "action": "Cast",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -239,7 +239,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
-                    "action": "Fire",
+                    "action": "Cast",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -250,7 +250,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
-                    "action": "Fire",
+                    "action": "Cast",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

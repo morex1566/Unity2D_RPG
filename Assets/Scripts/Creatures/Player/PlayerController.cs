@@ -21,8 +21,13 @@ public class PlayerController : MonoBehaviour
         movement.InputDirection = inputValue.Get<Vector2>();
     }
 
-    private void OnFire(InputValue inputValue)
+    /// <summary>
+    /// Press & Release 입력을 받아서 캐스팅합니다.    <br/>
+    /// Press : 캐스팅을 시작합니다.                  <br/>
+    /// Release : 캐스팅을 종료합니다.                <br/>
+    /// </summary>
+    private void OnCast(InputValue inputValue)
     {
-    
+        movement.Cast();
     }
 }

@@ -12,6 +12,8 @@ public partial class PlayerMovement : CreatureMovement
     private PlayerMovementState     movementState = PlayerMovementState.Idle;
     private PlayerActionState       actionState = PlayerActionState.Idle;
 
+    private Coroutine               cast = null;
+
     private void Awake()
     {
         player = GetComponent<Player>();
@@ -29,6 +31,33 @@ public partial class PlayerMovement : CreatureMovement
 
         movementState = moveDistance.magnitude > 0f ?
             PlayerMovementState.Move : PlayerMovementState.Idle;
+    }
+
+    public void Cast()
+    {
+        if (cast == null)
+        {
+            cast = StartCoroutine(InternalCast());
+            Debug.Log("캐스팅 시작");
+        }
+        else
+        {
+            StopCoroutine(cast);
+            cast = null;
+
+            actionState = PlayerActionState.Idle;
+            Debug.Log("캐스팅 종료");
+        }
+    }
+
+    private IEnumerator InternalCast()
+    {
+        actionState = PlayerActionState.Cast;
+
+        while(true)
+        {
+            yield return null;
+        }
     }
 }
 
