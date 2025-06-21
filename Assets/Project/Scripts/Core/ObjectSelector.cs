@@ -8,9 +8,7 @@ public class ObjectSelector : MonoBehaviour
 
     [field: SerializeField] public GameObject selectionBoxPb { get; set; }
 
-    [field: SerializeField] public Canvas canvas { get; set; }
-
-
+    public Canvas canvas { get; private set; } = null;
 
     public bool isDragging { get; private set; } = false;
 
@@ -28,8 +26,14 @@ public class ObjectSelector : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.inputMappingContext.Player.Click.performed += OnStartDragging;
-        GameManager.inputMappingContext.Player.Click.canceled += OnStopDragging;
+        canvas = GameObject.FindGameObjectWithTag(Tag.MainCanvas).GetComponent<Canvas>();
+        if (!canvas)
+        {
+            Debug.LogError("ë“œëž˜ê·¸ ë°•ìŠ¤ë¥¼ ëžœë”ë§í•  ìº”ë²„ìŠ¤ê°€ ì—†ìŒ.");
+        }
+
+        GameManager.inputMappingContext.Player.LeftClick.performed += OnStartDragging;
+        GameManager.inputMappingContext.Player.LeftClick.canceled += OnStopDragging;
     }
 
     private void Start()
@@ -69,8 +73,6 @@ public class ObjectSelector : MonoBehaviour
         selectionBoxObj.SetActive(false);
         isDragging = false;
 
-        // 1. µå·¡±× ¹Ú½º°¡ Àû´çÇÏ´Ù¸é ´ÙÁß ¼±ÅÃ ·ÎÁ÷
-        // 2. µå·¡±× ¹Ú½º°¡ ³Ê¹« ÀÛ´Ù¸é ´ÜÀÏ ¼±ÅÃ ·ÎÁ÷
         if (IsSelectionBoxUsable())
         {
             SelectUnits();
@@ -87,12 +89,11 @@ public class ObjectSelector : MonoBehaviour
 
     private bool IsSelectionBoxUsable()
     {
-        return selectionBoxRect.sizeDelta.x > 4f && selectionBoxRect.sizeDelta.y > 4f;
+        return selectionBoxRect.sizeDelta.x > 3f && selectionBoxRect.sizeDelta.y > 3f;
     }
 
     private void SelectUnits()
     {
-        // µå·¡±× ¿µ¿ªÀ» ¿ùµå ÁÂÇ¥·Î º¯È¯
         Vector2 min = new Vector2(
             Mathf.Min(startMousePos.x, currMousePos.x),
             Mathf.Min(startMousePos.y, currMousePos.y)
@@ -102,13 +103,11 @@ public class ObjectSelector : MonoBehaviour
             Mathf.Max(startMousePos.y, currMousePos.y)
         );
 
-        // ¿µ¿ª ³» À¯´Ö °¨Áö
         Collider2D[] colliders = Physics2D.OverlapAreaAll(min, max, selectableLayer);
         foreach (var collider in colliders)
         {
             GameObject unit = collider.gameObject;
 
-            // ¼±ÅÃ ½Ã, È¿°ú 
             var selectables = unit.GetComponents<IObjectSelectable>();
             foreach (var selectable in selectables)
             {
@@ -148,7 +147,6 @@ public class ObjectSelector : MonoBehaviour
     {
         foreach (var unit in selectedUnits)
         {
-            // ¼±ÅÃÇØÁ¦ ½Ã, È¿°ú
             var selectables = unit.GetComponents<IObjectSelectable>();
             foreach (var selectable in selectables)
             {

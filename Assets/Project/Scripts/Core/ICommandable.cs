@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ICommandable
 {
-    public Queue<Action<object>> commands { get; set; }
+    public Queue<Action> commands { get; set; }
 }

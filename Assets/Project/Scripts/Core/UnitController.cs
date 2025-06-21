@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class UnitController : MonoBehaviour, IObjectSelectable, ICommandable
 {
-    public Queue<Action<object>> commands { get; set; } = new();
+    public Queue<Action> commands { get; set; } = new();
 
 
 
@@ -16,5 +17,10 @@ public class UnitController : MonoBehaviour, IObjectSelectable, ICommandable
     public void OnDeselect()
     {
         Debug.Log("unselected");
+    }
+
+    public void MoveTo(Vector2 destination)
+    {
+
     }
 }

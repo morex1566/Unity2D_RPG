@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.inputMappingContext.Player.Click.performed += OnMoveUnitsTo;
+        GameManager.inputMappingContext.Player.RightClick.performed += OnCommandMoveUnitsTo;
     }
 
     private void Start()
@@ -19,18 +20,26 @@ public class PlayerController : MonoBehaviour
         objectSelectorObj = Instantiate(objectSelectorPb, transform);
     }
 
-    private void OnMoveUnitsTo(InputAction.CallbackContext context)
+    private void OnCommandMoveUnitsTo(InputAction.CallbackContext context)
     {
-        // 선택된 유닛이 없다면?
-        List<GameObject> units = objectSelectorObj.selectedUnits;
-        if (units.Count == 0)
-        {
-            return;
-        }
+        List<UnitController> units = objectSelectorObj.selectedUnits.Select(selectedUnits => selectedUnits.GetComponent<UnitController>()).ToList();
 
         foreach (var unit in units)
         {
-
+            Vector2 destination = UIf.GetMouseWorldPosition();
+            unit.commands.Enqueue(() => unit.MoveTo(destination));
         }
+    }
+
+    private void OnCommandCharge(InputAction.CallbackContext context)
+    {
+        List<UnitController> units = objectSelectorObj.selectedUnits.Select(selectedUnits => selectedUnits.GetComponent<UnitController>()).ToList();
+
+    }
+
+    private void OnCommandHoldPosition(InputAction.CallbackContext context)
+    {
+        List<UnitController> units = objectSelectorObj.selectedUnits.Select(selectedUnits => selectedUnits.GetComponent<UnitController>()).ToList();
+
     }
 }

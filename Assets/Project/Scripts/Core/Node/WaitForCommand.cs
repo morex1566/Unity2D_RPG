@@ -2,12 +2,11 @@ using MBT;
 using UnityEngine;
 
 [AddComponentMenu("")]
-[MBTNode(name = "Unit Behaviour/Wait command")]
-public class WaitForCommand : Condition
+[MBTNode(name = "Unit/Wait Command")]
+public class WaitForCommand : UnitLeaf
 {
-    public override bool Check()
+    public override NodeResult Execute()
     {
-        throw new System.NotImplementedException();
+        return commandable.commands.Count <= 0 ? NodeResult.running : NodeResult.success;
     }
-
 }

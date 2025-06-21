@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - MainCanvas
   layers:
   - Default
   - TransparentFX
@@ -11,15 +12,19 @@ TagManager:
   - 
   - Water
   - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - Unit
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Unit_Ally
+  - Unit_Enemy
   - 
   - 
   - 
@@ -27,10 +32,6 @@ TagManager:
   - 
   - Tile_Passable
   - Tile_Impassable
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 
