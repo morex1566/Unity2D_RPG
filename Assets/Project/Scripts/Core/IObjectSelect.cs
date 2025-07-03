@@ -1,5 +1,5 @@
 
-public interface IObjectSelectable
+public interface IObjectSelect
 {
     public abstract void OnSelect();
 

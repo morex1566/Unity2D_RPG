@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class UnitController : MonoBehaviour, IObjectSelectable, ICommandable
+public class UnitController : MonoBehaviour, IObjectSelect, ICommandable
 {
-    public Queue<Action> commands { get; set; } = new();
+    public Queue<ICommand> commands { get; set; } = new();
 
 
 
@@ -20,6 +20,16 @@ public class UnitController : MonoBehaviour, IObjectSelectable, ICommandable
     }
 
     public void MoveTo(Vector2 destination)
+    {
+
+    }
+
+    public void AttackTarget(GameObject target)
+    {
+
+    }
+
+    public void HoldPosition()
     {
 
     }

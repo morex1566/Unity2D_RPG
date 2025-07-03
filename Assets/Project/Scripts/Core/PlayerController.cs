@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
         foreach (var unit in units)
         {
             Vector2 destination = UIf.GetMouseWorldPosition();
-            unit.commands.Enqueue(() => unit.MoveTo(destination));
         }
     }
 
@@ -35,11 +34,13 @@ public class PlayerController : MonoBehaviour
     {
         List<UnitController> units = objectSelectorObj.selectedUnits.Select(selectedUnits => selectedUnits.GetComponent<UnitController>()).ToList();
 
+        foreach (var unit in units)
+        {
+            
+        }
     }
 
     private void OnCommandHoldPosition(InputAction.CallbackContext context)
     {
-        List<UnitController> units = objectSelectorObj.selectedUnits.Select(selectedUnits => selectedUnits.GetComponent<UnitController>()).ToList();
-
     }
 }

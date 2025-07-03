@@ -108,7 +108,7 @@ public class ObjectSelector : MonoBehaviour
         {
             GameObject unit = collider.gameObject;
 
-            var selectables = unit.GetComponents<IObjectSelectable>();
+            var selectables = unit.GetComponents<IObjectSelect>();
             foreach (var selectable in selectables)
             {
                 selectable.OnSelect();
@@ -125,7 +125,7 @@ public class ObjectSelector : MonoBehaviour
         {
             GameObject unit = collider.gameObject;
             selectedUnits.Add(unit);
-            unit.GetComponent<IObjectSelectable>().OnSelect();
+            unit.GetComponent<IObjectSelect>().OnSelect();
         }
     }
 
@@ -147,7 +147,7 @@ public class ObjectSelector : MonoBehaviour
     {
         foreach (var unit in selectedUnits)
         {
-            var selectables = unit.GetComponents<IObjectSelectable>();
+            var selectables = unit.GetComponents<IObjectSelect>();
             foreach (var selectable in selectables)
             {
                 selectable.OnDeselect();
